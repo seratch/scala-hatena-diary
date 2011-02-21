@@ -155,11 +155,11 @@ object HelloWorldWithList extends Application {
 
 object HelloWorldWithImplicitConversions extends Application {
 
-  case class Speaker(val value: String) {
+  case class Printer(val value: String) {
     def display() = println(value)
   }
 
-  implicit def toSpeaker(str: String): Speaker = Speaker(str)
+  implicit def toPrinter(str: String): Printer = Printer(str)
 
   "Hello World!".display()
 }
@@ -185,7 +185,7 @@ object HelloWorldWithActor extends Application {
             Thread.sleep(wait)
             println("Hello " + str + "!")
           }
-          case _ => println("unknow message")
+          case _ => println("unknown message")
         }
       }
     }
