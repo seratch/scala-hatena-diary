@@ -141,7 +141,7 @@ object HelloWorldWithList extends Application {
   // recursive call
   def recursiveDisplay(list: List[String]): Unit = {
     list match {
-      case h::Nil => print(h)
+      case h :: Nil => print(h)
       case h :: t => {
         print(h)
         recursiveDisplay(t)
