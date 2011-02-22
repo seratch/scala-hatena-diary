@@ -141,11 +141,11 @@ object HelloWorldWithList extends Application {
   // recursive call
   def recursiveDisplay(list: List[String]): Unit = {
     list match {
-      case head :: tail if list.size >= 2 => {
-        print(head)
-        recursiveDisplay(tail)
+      case h::Nil => print(h)
+      case h :: t => {
+        print(h)
+        recursiveDisplay(t)
       }
-      case l if list.size == 1 => print(l.head)
       case _ =>
     }
   }
