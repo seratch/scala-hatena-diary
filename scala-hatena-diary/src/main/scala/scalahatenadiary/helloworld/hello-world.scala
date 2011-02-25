@@ -153,6 +153,21 @@ object HelloWorldWithList extends Application {
   recursiveDisplay(charList)
 }
 
+object HelloWorldWithImplicitParameters extends Application {
+
+  object HelloWorld {
+    def display(hello: String)(implicit world: World) = println(hello + " " + world.name + "!")
+  }
+
+  case class World(val name:String)
+
+  implicit val WORLD_VAL = World("Scala World")
+
+  HelloWorld.display("Hello")
+  HelloWorld.display("Hello")(World("Groovy World"))
+
+}
+
 object HelloWorldWithImplicitConversions extends Application {
 
   case class Printer(val value: String) {
