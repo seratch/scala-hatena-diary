@@ -1,5 +1,6 @@
+package scalahatenadiary.scala99
+
 import org.specs.Specification
-import scalahatenadiary.scala99._
 
 object P01Spec extends Specification {
   "P01.last(List[T]) " should {
