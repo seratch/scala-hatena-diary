@@ -125,8 +125,34 @@ trait HelloWorldTrait {
   def display() = println("Hello World!")
 }
 
-object HelloWorldWithTrait extends Application with HelloWorldTrait {
-  display()
+object HelloWorldWithSingletonObjectMixiIn extends HelloWorldTrait {
+  def main(args: Array[String]) = display
+}
+
+trait Printer {
+  def p(str: String) = println(str)
+}
+
+trait Message {
+  val helloWorld = "Hello World!"
+}
+
+class MixInPrinter extends Printer with Message {
+  def display() = p(helloWorld)
+}
+
+object HelloWorldWithMixIn extends Application {
+  val printer = new MixInPrinter
+  printer.display()
+}
+
+class SelfTypeAnnotationPrinter { this: Printer with Message =>
+  def display() = p(helloWorld)
+}
+
+object HelloWorldWithSelfTypeAnnotation extends Application {
+  val printer = new SelfTypeAnnotationPrinter with Printer with Message
+  printer.display()
 }
 
 object HelloWorldWithList extends Application {
